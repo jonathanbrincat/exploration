@@ -26,7 +26,8 @@ module.exports = {
 
 	output: {
 		//path: __dirname + "/src" + "/scripts",
-		path: "dist/scripts",
+		//path: __dirname + "/dist/scripts",
+		path: __dirname + "/src/dist/scripts",
 		filename: "scripts.js"
 	},
 

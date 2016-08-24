@@ -23,11 +23,11 @@ class Layout extends React.Component {
             //JSX
             <div>
                 <h1>React says Hi!</h1>
-                <h2>JSX can only return one parent DOM element; ie. root node</h2>
-                <h3>Here is some inline javascript; whats 1 + 2? {1 + 2}</h3>
-                <h4>Heres another way; Hi my name is { name }</h4>
-                <h5>Heres another way; Hello { this.foo() }</h5>
-                <h5>Heres a better way; Hello { this.bar }</h5>
+                <h4>JSX can only return one parent DOM element; ie. root node</h4>
+                <p>Here is some inline javascript; whats 1 + 2? {1 + 2}</p>
+                <p>Heres another way; Hi my name is { name }</p>
+                <p>Heres another way; Hello { this.foo() }</p>
+                <p>Heres a better way; Hello { this.bar }</p>
             </div>
         );
     }
@@ -36,3 +36,13 @@ class Layout extends React.Component {
 const appReact = document.getElementById("app-react");
 
 ReactDOM.render(<Layout />, appReact);
+
+var Vue = require("vue");
+
+new Vue({
+    el: "#app-vue",
+
+    data: {
+        'message': "Vue says Hi!"
+    }
+})
