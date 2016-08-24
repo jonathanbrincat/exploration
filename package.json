@@ -1,0 +1,25 @@
+{
+  "name": "testicles",
+  "version": "0.1.0",
+  "description": "project description",
+  "author": "j brincat",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/pix8/pix8.grunt"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=6.4.0"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.2"
+  },
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "lodash": "^4.15.0"
+  }
+}
