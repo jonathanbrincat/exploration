@@ -10,12 +10,9 @@ export default class Layout extends React.Component {
 
         this.bar = "foobar";
 
-        //STATES
         this.state = {
         	title: "Default title"
         };
-
-        //PROPS
     }
 
     foo() {
