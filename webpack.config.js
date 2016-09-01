@@ -7,7 +7,8 @@ module.exports = {
 	context: __dirname + "/src",
 	devtool: debug ? "inline-sourcemap" : null,
 	//entry: "./js/testicles/main.js",
-	entry: "./js/spa/main.js",
+	//entry: "./js/spa/main.js",
+	entry: "./js/todo/main.js",
 
 	module: {
 		loaders: [
