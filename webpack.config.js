@@ -6,7 +6,8 @@ var webpack = require('webpack');
 module.exports = {
 	context: __dirname + "/src",
 	devtool: debug ? "inline-sourcemap" : null,
-	entry: "./js/testicles/main.js",
+	//entry: "./js/testicles/main.js",
+	entry: "./js/spa/main.js",
 
 	module: {
 		loaders: [
@@ -36,4 +37,11 @@ module.exports = {
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
 	],
+
+	devServer: {
+		'content-base': 'src',
+		'port': 4444,
+		'hot': true,
+		'inline': true
+	}
 };
