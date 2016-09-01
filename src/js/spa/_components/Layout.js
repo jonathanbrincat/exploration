@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
 
+import Header from "./Header";
+import Footer from "./Footer";
+
 
 export default class Layout extends React.Component {
 
@@ -18,16 +21,29 @@ export default class Layout extends React.Component {
 		const { history } = this.props;
 		console.log( history.isActive("archives") );
 
+		const { location } = this.props;
+		const containerStyle = {
+			marginTop: "60px"
+		}
+
 		return (
 
 			//JSX
 			<div>
-				<h1>Killer News</h1>
+				<Header location={ location } />
 
-				{this.props.children}
-				<button class="btn btn-danger" onClick={this.clickHandler.bind(this)}>featured</button>
-				<Link class="btn btn-primary" to="archives" activeClassName="test">archives</Link>
-				<Link to="settings" activeClassName="test"><button class="btn btn-success">settings</button></Link>
+				<div class="container" style={ containerStyle }>
+					<div class="row">
+						<div class="col-lg-12">
+							<h1>KillerNews.net</h1>
+
+							{ this.props.children }
+
+						</div>
+					</div>
+
+					<Footer />
+				</div>
 			</div>
 		);
 	}
