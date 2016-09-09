@@ -13,3 +13,7 @@ export function deleteTodo(id) {
 		id
 	})
 }
+
+export function reloadTodos() {
+	
+}

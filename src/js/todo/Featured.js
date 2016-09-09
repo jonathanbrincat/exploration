@@ -38,15 +38,16 @@ export default class Featured extends React.Component {
 	render() {
 		const { todos } = this.state;
 
-		const TodoComponents = todos.map( (todo) => {
+		/*const TodoComponents = todos.map( (todo) => {
 			return <Todo key={ todo.id } {...todo} />
-		});
+		});*/
+
+		// <button onClick=(this.createTodo.bind(this))>Create</button>
 
 		return (
 
 			//JSX
 			<div>
-				<button onClick=(this.createTodo.bind(this))>Create</button>
 				<h1>Todos</h1>
 				<ul>{ TodoComponents }</ul>
 			</div>

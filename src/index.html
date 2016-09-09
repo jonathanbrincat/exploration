@@ -10,15 +10,25 @@
 </head>
 
 <body>
-	<h1 class="jquery">My Webpack Page ...loading</h1>
 
-    <div id="app-react"></div>
+	<div id="app-jquery">
+		<h1>My Webpack Page ...loading</h1>
+		<div class="dev__payload">
+			<h4>This is data coming from a dummy (webservice/API) endpoint; express server: <span>{{ service }}</span></h4>
+		</div>
+	</div>
+
+	<div id="app-react"></div>
 
 	<div id="app-vue">
-        <h1>{{ message }}</h1>
-    </div>
+		<h1>{{ message }}</h1>
 
-    <!-- <script type="text/javascript" src="../dist/scripts/scripts.js"></script> -->
+		<div class="dev__payload">
+			<h4>This is data coming from a dummy (webservice/API) endpoint; express server: <span>{{ service }}</span></h4>
+		</div>
+	</div>
+
+	<!-- <script type="text/javascript" src="../dist/scripts/scripts.js"></script> -->
 	<script type="text/javascript" src="./dist/scripts/scripts.js"></script>
 </body>
 </html>

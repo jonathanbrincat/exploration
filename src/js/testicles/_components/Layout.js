@@ -44,6 +44,12 @@ export default class Layout extends React.Component {
 
 			//JSX
 			<div>
+				<h1>React says Hi!</h1>
+				
+				<div class="dev__payload">
+					<h4>This is data coming from a dummy (webservice/API) endpoint; express server: <span>{ this.props.data.title }</span></h4>
+				</div>
+
 				{ DOM }
 
 				<Header title={ "String literal" } />
@@ -52,7 +58,6 @@ export default class Layout extends React.Component {
 
 				<Subheader changeSubtitle={this.changeSubtitle.bind(this)} subtitle={ this.state.subtitle }  />
 
-				<h1>React says Hi!</h1>
 				<h4>JSX can only return one parent DOM element; ie. root node</h4>
 				<p>Here is some inline javascript; whats 1 + 2? {1 + 2}</p>
 				<p>Heres another way; Hi my name is { name }</p>
