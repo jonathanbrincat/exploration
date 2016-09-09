@@ -24,6 +24,7 @@ service.use(function(request, response, next) {
 
 // CREATE
 service.post("/", function (request, response) {
+	console.log('Hellooooooooooooooooo! ', request);
 	response.send('Got a POST request');
 });
 
@@ -58,3 +59,13 @@ service.delete("/", function (request, response) {
 service.listen(3000, function() {
 	console.log("Express is listening on port 3000");
 });
+
+
+/* Database connection
+********************************/
+const Mongo = require('mongodb').MongoClient
+
+Mongo.connect('link-to-mongodb', (error, database) => {
+	// ... start the server
+});
+
