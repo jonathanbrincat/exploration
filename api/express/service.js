@@ -1,6 +1,31 @@
 const express = require("express");
 const service = express();
 
+const bodyParser = require("body-parser");
+
+var db;
+
+//parse form port request and handle params
+service.use(bodyParser.urlencoded({extended: true}));
+//TUTE
+//javascript templating engine for dynamic rendering of js to html(pages) through express
+service.set("view engine", "ejs");
+service.set("views", __dirname + "/views");
+
+//TUTE
+//make public folder accessible
+service.use(express.static(__dirname + "/public"));
+service.set("public", __dirname + "/public");
+
+//TUTE
+//allow express to consume json
+service.use(bodyParser.json());
+
+//REFERENCE:
+//https://zellwk.com/blog/crud-express-mongodb/
+//https://zellwk.com/blog/crud-express-and-mongodb-2/
+//http://www.embeddedjs.com/
+
 
 /* CORs
 ********************************/
@@ -24,23 +49,51 @@ service.use(function(request, response, next) {
 
 // CREATE
 service.post("/", function (request, response) {
-	console.log('Hellooooooooooooooooo! ', request);
-	response.send('Got a POST request');
+	//console.log('Hellooooooooooooooooo! ', request);
+	console.log('Hellooooooooooooooooo! ', request.body);
+	//response.send('Got a POST request dude');
+
+	db.collection("quotes").save(request.body, (error, result) => {
+
+		if(error) return console.error("Insane in the membrane: Something went wrong, ", error);
+
+		console.log("saved to the database");
+		//TUTE
+		response.redirect("/");
+
+		//JB
+		//response.redirect("//localhost:4444/");
+	});
 });
 
 // READ
-//service.get("/", (request, response) => {
-service.get("/", function(request, response) {
+service.get("/", (request, response) => {
+//service.get("/", function(request, response) {
 	//DEVNOTE: this could be argmented with SQL calls to DB to construct and return json
 
-	var json = {
-		title: "Hello World",
-		value: 0,
-		colour: "red",
-		size: [32, 34, 38, 40]
-	};
+	// var json = {
+	// 	title: "Hello World",
+	// 	value: 0,
+	// 	colour: "red",
+	// 	size: [32, 34, 38, 40]
+	// };
 
-	response.send(json);
+	// response.send(json);
+
+	var cursor = db.collection("quotes").find().toArray(function(error, query) {
+
+		if(error) return console.error("Insane in the membrane: Something went wrong, ", error);
+
+		console.log(query);
+
+		//TUTE
+		//respond with ejs render --> html
+		response.render("index.ejs", {quotes: query});
+
+		//JB
+		//respond with array/json
+		//response.send(query);
+	});
 });
 
 // UPDATE
@@ -56,16 +109,24 @@ service.delete("/", function (request, response) {
 
 /*
 ********************************/
-service.listen(3000, function() {
-	console.log("Express is listening on port 3000");
-});
+// service.listen(3000, function() {
+// 	console.log("Express is listening on port 3000");
+// });
 
 
 /* Database connection
 ********************************/
 const Mongo = require('mongodb').MongoClient
 
-Mongo.connect('link-to-mongodb', (error, database) => {
-	// ... start the server
+Mongo.connect('mongodb://jonathanbrincat:M0nkeynuts@ds021356.mlab.com:21356/testicles', (error, database) => {
+
+	if(error) return console.error("Insane in the membrane: Something went wrong, ", error);
+
+	db = database;
+
+	//start service only if db is connected
+	service.listen(3000, function() {
+		console.log("Express is listening on port 3000");
+	});
 });
 
