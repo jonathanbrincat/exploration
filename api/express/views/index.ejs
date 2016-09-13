@@ -2,36 +2,22 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>MY APP</title>
+	<title>A sample app</title>
 
 	<script type="text/javascript" src="main.js"></script>
 	<!-- <script type="text/javascript" src="./dist/scripts/scripts.js"></script> -->
 </head>
 
 <body>
-	May Node and Express be with you.
+	Node, Webpack, Express, Mongodb.
 
 	<ul class="quotes">
-	<% for(var i=0; i<quotes.length; i++) {%>
+	<% for(var i=0; i<vehicles.length; i++) {%>
 		<li class="quote">
-			<span><%= quotes[i].name %></span>
-			<span><%= quotes[i].quote %></span>
+			<span><%= vehicles[i].brand %></span>
+			<span><%= vehicles[i].product %></span>
 		</li>
 	<% } %>
 	</ul>
-
-	<form method="post" action="http://localhost:3000/">
-		<legend>Test post</legend>
-		<fieldset>
-			<input type="text" name="name" />
-			<input type="text" name="quote" />
-		</fieldset>
-		<input type="submit" value="submit" />
-	</form>
-
-	<div>
-		<h2>Replace last entry</h2>
-		<button id="update">Update</button>
-	</div>
 </body>
 </html>

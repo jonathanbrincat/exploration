@@ -1,5 +1,9 @@
+//require('./css/candyfloss.css');
+require('../../css/candyfloss.css');
+
 require("./module1.js");
 require("./module2.js");
+
 
 import React from "react";
 import ReactDOM from "react-dom";

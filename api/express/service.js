@@ -26,6 +26,14 @@ service.use(bodyParser.json());
 //https://zellwk.com/blog/crud-express-and-mongodb-2/
 //http://www.embeddedjs.com/
 
+//http://code.tutsplus.com/tutorials/introduction-to-webpack-part-1--cms-25791
+//http://code.tutsplus.com/tutorials/introduction-to-webpack-part-2--cms-25911
+
+//https://www.smashingmagazine.com/2015/12/introduction-to-postcss/
+
+//import collection to db
+//mongoimport -h ds021356.mlab.com:21356 -d testicles -c vehicles -u <user> -p <password> --file <input file> --jsonArray
+
 
 /* CORs
 ********************************/
@@ -80,7 +88,8 @@ service.get("/", (request, response) => {
 
 	// response.send(json);
 
-	var cursor = db.collection("quotes").find().toArray(function(error, query) {
+	//var cursor = db.collection("quotes").find().toArray(function(error, query) {
+	var cursor = db.collection("vehicles").find().toArray(function(error, query) {
 
 		if(error) return console.error("Insane in the membrane: Something went wrong, ", error);
 
@@ -88,7 +97,8 @@ service.get("/", (request, response) => {
 
 		//TUTE
 		//respond with ejs render --> html
-		response.render("index.ejs", {quotes: query});
+		//response.render("index.ejs", {quotes: query});
+		response.render("index.ejs", {vehicles: query});
 
 		//JB
 		//respond with array/json
